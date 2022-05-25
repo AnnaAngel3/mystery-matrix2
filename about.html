@@ -1,0 +1,71 @@
+
+
+<html>
+    <head>
+    
+        <title>Mystery Matrix</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+    
+      <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    
+    <body background="mystery dude.jpg">
+    <center>
+      <h1 class="btn btn-info heading">Mystery Matrix</h1>
+      <h3 class="btn btn-primary">Greetings! Do you have a mystery on your hands? Well you have come to the right place! Welcome to Mystery Matrix! We solve mystery in Centerville Elememtary P4!
+      </h3>
+      <a href="index.html" class="btn">Back</a>
+      <br><br><br><br>
+      
+        
+      </h3>  
+    </center>
+    
+    <script>
+      objectDetector= "";
+    
+      img = "";
+Status = "";
+object=[];
+    function preload(){
+      
+    }
+
+
+    
+    function setup() {
+  canvas = createCanvas(640, 420);
+  canvas.center();
+  
+}
+
+function modelLoaded(){
+    console.log('model is Loaded');
+Status=true;
+objectDetector.detect(img,gotResult);
+}
+
+function gotResult(error,result){
+if(error){
+    console.error(error);
+}
+console.log(result);
+object=result
+}
+
+function draw() {
+  image(img, 0, 0, 640, 420);
+
+}
+    
+    </script>
+    
+    </body>
+    
+    </html>
